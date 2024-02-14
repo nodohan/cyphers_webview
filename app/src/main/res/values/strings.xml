@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CyphersWebApp</string>
+    <string name="app_name">마을주민1 검색기</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>

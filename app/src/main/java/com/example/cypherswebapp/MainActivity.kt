@@ -1,6 +1,8 @@
 package com.example.cypherswebapp
 
 import android.os.Bundle
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -19,14 +21,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        val webView: WebView = binding.webview
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        webView.webChromeClient = WebChromeClient()
+        //webView.loadUrl("http://192.168.50.150:8080/user/userSearch?isApp=true")
+        webView.loadUrl("http://doseh.co.kr/user/userSearch?isApp=true")
+        WebView.setWebContentsDebuggingEnabled(true)
+
+        webView.settings.javaScriptEnabled = true
+        webView.settings.domStorageEnabled = true;
+
     }
 }
